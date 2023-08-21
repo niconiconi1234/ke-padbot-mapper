@@ -1,0 +1,23 @@
+apiVersion: devices.kubeedge.io/v1alpha2
+kind: Device
+metadata:
+  name: padbot-s2
+  namespace: default
+  labels:
+    description: padbot-s2
+    model: padbot
+spec:
+  deviceModelRef:
+    name: padbot
+  nodeSelector:
+    nodeSelectorTerms:
+    - matchExpressions:
+      - key: ''
+        operator: In
+        values:
+        - nuc-zhw
+status:
+  twins:
+    - propertyName: batteryPercentage
+    - propertyName: batteryStatus
+    - propertyName: actionStatus

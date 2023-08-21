@@ -1,0 +1,25 @@
+apiVersion: devices.kubeedge.io/v1alpha2
+kind: DeviceModel
+metadata:
+ name: padbot
+ namespace: default
+spec:
+ properties:
+  - name: batteryPercentage
+    description: remaining battery percentage of padbot
+    type: 
+      string:
+        accessMode: ReadOnly
+        defaultValue: "UNKNOWN"
+  - name: batteryStatus
+    description: battery status of padbot
+    type: 
+      string:
+        accessMode: ReadOnly
+        defaultValue: "UNKNOWN"
+  - name: actionStatus
+    description: action status of padbot
+    type: 
+      string:
+        accessMode: ReadOnly
+        defaultValue: "UNKNOWN"

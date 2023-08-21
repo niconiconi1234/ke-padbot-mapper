@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ke-padbot-mapper-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ke-padbot-mapper
+  template:
+    metadata:
+      labels:
+        app: ke-padbot-mapper
+    spec:
+      nodeName: nuc-zhw
+      hostNetwork: true
+      containers:
+      - name: s2-mapper-container
+        image: huajuan6848/ke-padbot-mapper:0.0.1
+        volumeMounts:
+        - name: config-volume
+          mountPath: /opt/kubeedge/
+        resources:
+          limits:
+            cpu: 500m
+            memory: 512Mi
+        env:
+        - name: PADBOT_STATUS_URL
+          value: http://192.168.31.5:5000/status
+        - name: DEVICE_NAME
+          value: padbot-s2
+      volumes:
+      - name: config-volume
+        configMap:
+          name: device-profile-config-nuc-zhw
+      restartPolicy: Always
