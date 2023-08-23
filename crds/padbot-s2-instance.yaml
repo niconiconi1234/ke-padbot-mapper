@@ -21,3 +21,9 @@ status:
     - propertyName: batteryPercentage
     - propertyName: batteryStatus
     - propertyName: actionStatus
+    - propertyName: navigationStatus
+    - propertyName: robotLocation
+      desired:
+        metadata:
+          type: string
+        value: "UNKNOWN"

@@ -23,3 +23,15 @@ spec:
       string:
         accessMode: ReadOnly
         defaultValue: "UNKNOWN"
+  - name: navigationStatus
+    description: navigation status of padbot
+    type: 
+      string:
+        accessMode: ReadOnly
+        defaultValue: "UNKNOWN"
+  - name: robotLocation
+    description: location of padbot
+    type: 
+      string:
+        accessMode: ReadWrite
+        defaultValue: "UNKNOWN"

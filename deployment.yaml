@@ -16,7 +16,7 @@ spec:
       hostNetwork: true
       containers:
       - name: s2-mapper-container
-        image: huajuan6848/ke-padbot-mapper:0.0.1
+        image: huajuan6848/ke-padbot-mapper:0.0.2
         volumeMounts:
         - name: config-volume
           mountPath: /opt/kubeedge/
@@ -27,6 +27,8 @@ spec:
         env:
         - name: PADBOT_STATUS_URL
           value: http://192.168.31.5:5000/status
+        - name: PADBOT_NAVIGATION_URL
+          value: http://192.168.31.5:5000/navigation
         - name: DEVICE_NAME
           value: padbot-s2
       volumes:
